@@ -7,6 +7,15 @@ repos:
         language: system
         types: [python]
         args:
-          - "-rn" # Only messages
-          - "-sn" # Not show scores
+          - "-rn"  # Only messages
+          - "-sn"  # Not show scores
           - "--rcfile=.pylintrc"
+
+  - repo: local
+    hooks:
+      - id: requirements
+        name: requitements
+        entry: bash -c 'pip3 freeze > requirements.txt; git add requirements.txt'
+        language: system
+        pass_filenames: false
+        stages: [commit]
