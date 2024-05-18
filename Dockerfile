@@ -1,5 +1,5 @@
 # Imagem e versão.
-FROM python:3.13.0b1-slim-bullseye
+FROM python:3.10-slim
 
 # Diretório de trabalho do container.
 WORKDIR /app

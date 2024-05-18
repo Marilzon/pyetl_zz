@@ -1,6 +1,8 @@
 version: '3.8'
 services:
     mysql:
+        container_name: ms_mysql
+        restart: always
         image: mysql:8.0.37-debian
         environment:
             MYSQL_ROOT_PASSWORD: "mysql_pass_root"
@@ -10,8 +12,12 @@ services:
         volumes:
             - mysqlVolume:/var/lib/mysql
         ports:
-            - "3307:3306"
+            - "3306:3306"
+        expose:
+            - "3306"
     postgresql:
+        container_name: ms_postgres
+        restart: always
         image: postgres:13-bullseye
         environment:
             POSTGRES_USER: "postgres_user"
@@ -20,13 +26,18 @@ services:
         volumes:
             - pgVolume:/var/lib/postgresql/data
         ports:
-            - "5433:5432"
+            - "5432:5432"
+        expose:
+            - "5432"
     app:
+        container_name: pyetl_app
         build:
             context: .
             dockerfile: Dockerfile
         ports:
             - "8080:5000"
+        expose:
+            - "8080"
 volumes:
     mysqlVolume:
     pgVolume:
