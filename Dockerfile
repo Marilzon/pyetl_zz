@@ -8,7 +8,7 @@ WORKDIR /app
 COPY requirements.txt requirements.txt
 
 # Instala as dependências Python gravadas em requirements.txt.
-RUN pip3 install -r -no-cache-dir requirements.txt
+RUN pip3 install -r requirements.txt
 
 # Copia todos o conteúdos locais para o diretório de trabalhodo container.
 COPY . .

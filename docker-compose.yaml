@@ -1,31 +1,32 @@
 version: '3.8'
 services:
-    app:
-        build:
-            context: .
-            dockerfile: Dockerfile
-        ports: 8080:5000
     mysql:
         image: mysql:8.0.37-debian
         environment:
-            MYSQL_ROOT_PASSWORD: mysql_pass_root
-            MYSQL_USER: mysql_user
-            MYSQL_PASSWORD: mysql_pass
-            MYSQL_DATABASE: mysql_database
+            MYSQL_ROOT_PASSWORD: "mysql_pass_root"
+            MYSQL_USER: "mysql_user"
+            MYSQL_PASSWORD: "mysql_pass"
+            MYSQL_DATABASE: "mysql_database"
         volumes:
-            - mysqlVolume:/var/lib/mysql/data
+            - mysqlVolume:/var/lib/mysql
         ports:
             - "3307:3306"
     postgresql:
         image: postgres:13-bullseye
         environment:
-            POSTGRES_USER: postgres_user
-            POSTGRES_PASSWORD: postgres_pass
-            POSTGRES_DB: postgres_database
+            POSTGRES_USER: "postgres_user"
+            POSTGRES_PASSWORD: "postgres_pass"
+            POSTGRES_DB: "postgres_database"
         volumes:
-            - pgVolume:/var/lib/postgresql/data/
+            - pgVolume:/var/lib/postgresql/data
         ports:
             - "5433:5432"
+    app:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        ports:
+            - "8080:5000"
 volumes:
     mysqlVolume:
     pgVolume:
