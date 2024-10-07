@@ -1,14 +1,12 @@
 services:
-  postgresql_zz:  # Nome do serviço
-    image: 'postgres:17.0'
-    container_name: postgresql_zz
-    environment:
-      POSTGRES_USER: source_admin
-      POSTGRES_PASSWORD: source_admin
-    ports:
-      - '5432:5432'
-    volumes:
-      - './database-sources/postgresql_zz:/var/lib/postgresql/data'
-volumes:
-  postgresql_data:
-    driver: local
+    postgresql_zz:
+        image: 'postgres:17.0'
+        container_name: postgresql_zz
+        environment:
+            POSTGRES_USER: source_admin
+            POSTGRES_PASSWORD: source_admin
+            POSTGRES_DB: zz_enterprise
+        ports:
+            - '5432:5432'
+        volumes:
+            - '${HOME}/pyetl_zz/data/postgre_zz:/var/lib/postgresql/data'

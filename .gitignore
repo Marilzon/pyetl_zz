@@ -1,2 +1,58 @@
-**/__pycache__
-venv
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+*.egg-info/
+*.egg
+
+# Virtual environments
+venv/
+env/
+.env
+.venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg
+*.egg-info/
+.installed.cfg
+*.manifest
+*.whl
+
+# Docker
+docker-compose.override.yml
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# VSCode
+.vscode/
+.history/
+*.code-workspace
+
+# Logs
+*.log
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Miscellaneous
+*.DS_Store
+*.swp
+*~
